@@ -1,0 +1,14 @@
+{
+  "name": "qrjs",
+  "homepage": "https://github.com/lifthrasiir/qr.js",
+  "version": "0.0.20110119",
+  "_release": "0.0.20110119",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.20110119",
+    "commit": "b3d7fdedeb909f9b12b8435697d75175d961cbc6"
+  },
+  "_source": "git://github.com/lifthrasiir/qr.js.git",
+  "_target": "*",
+  "_originalSource": "lifthrasiir/qr.js"
+}
