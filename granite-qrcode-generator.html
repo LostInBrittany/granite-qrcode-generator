@@ -1,0 +1,237 @@
+<!--
+@license MIT
+Copyright (c) 2016 Horacio "LostInBrittany" Gonzalez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`<granite-qrcode-generator>` is an element to render a QR Code
+
+Typical usage:
+
+```html
+  <granite-qrcode-generator 
+      data="https://github.com/lostinbrittany/granite-elements"
+      mode="alphanumeric"
+      auto></granite-qrcode-generator>
+```
+    
+@element granite-qrcode-generator
+@blurb An element to render a QR Code
+@homepage index.html
+@demo demo/index.html
+-->
+
+
+<script src="../qrjs/qr.js"></script>
+
+<dom-module is="granite-qrcode-generator">
+
+    <template>
+      <style>
+        :host {
+          display: block;
+        }
+      </style>
+    </template>
+
+    <div id="qrCodeContainer"></div>
+
+    <script>
+      Polymer({
+        is: "granite-qrcode-generator",
+
+        properties: {
+          /**
+           * The data to encode in the QRCode 
+           */
+          data: {
+            type: String,
+          },
+          /**
+           * The size of each modules in pixels
+           * Defaults to 5px
+           */
+          modulesize: {
+            type: Number,
+            value: 5
+          },
+          /**
+           * This is a size of margin in *modules*.
+           * Defaults to 4 (white modules). 
+           * The specficiation mandates the margin no less than 4 modules
+           */
+          margin: {
+            type: Number,
+            value: 4
+          },
+          /**
+           * The QRCode version, an integer in [1,40]. 
+           * When omitted (or -1) the smallest possible version is chosen.
+           */
+          version: {
+            type: Number,
+            value: -1,
+          },
+
+          /**
+           * The mode of the QRCode, one of 'numeric', 'alphanumeric', 'octet'.
+           * When omitted the smallest possible ('numeric') mode is chosen
+           */
+          mode: {
+            type: String,
+            value: "numeric",
+          },
+
+          /**
+           * The error correction code level, one of 'L', 'M', 'Q', 'H'. 
+           * Defaults to 'L'.
+           */
+          ecclevel: {
+            type: String,
+            value: 'L',
+          },
+
+          /**
+           * The mask level, an integer in [0,7]. 
+           * When omitted (or -1) the best mask is chosen
+           */
+          mask: {
+            type: Number,
+            value: -1,
+          },
+
+          /**
+           * If true, the QRCode is regenerated at each change in parameters 
+           */
+          auto: {
+            type: Boolean,
+            value: false
+          },
+        },
+
+        observers: [
+          "paramsChanged(data,version,mode,ecclevel,mask,auto)"
+        ],
+
+        // *********************************************************************
+        // Observers
+        // *********************************************************************
+        paramsChanged: function() {
+          console.debug("[granite-qrcode-generator] paramsChanged - auto ", this.auto);
+          if (this.auto) {
+            this.generateQRCode();
+          }
+        },
+
+        // *********************************************************************
+        // Other methods
+        // *********************************************************************
+
+        /**
+         * Generates the QRCode
+         */
+        generateQRCode: function() {
+          if (!this._validateParams()) {
+            return;
+          }
+          var options = {
+            modulesize: this.modulesize,
+            margin: this.margin,
+            version: this.version,
+            mode: this.mode,
+            ecclevel: this.ecclevel,
+            mask: this.mask
+          }
+          if (this.format === 'png') {
+            this.generateQRCodePNG(options);
+          }
+          else {
+            this.generateQRCodeHTML(options);
+          }
+        },
+        generateQRCodePNG: function (options) {
+          var img;
+          try {
+            img = document.createElement('img');
+            img.src = QRCode.generatePNG(this.data, options);
+            this._qrCodeContainerAdd(img);
+          }
+          catch (e) {
+            console.log('no canvas support');
+          }
+        },
+        generateQRCodeHTML: function (options) {
+          console.debug("[granite-qrcode-generator] generateQRCodeHTML - data ", this.data);
+          var div = QRCode.generateHTML(this.data, options);
+          this._appendQRCode(div);
+        },
+
+        _appendQRCode: function(node) {
+          for (var i=Polymer.dom(this.$.qrCodeContainer).children.length-1; i>=0 ; i--) {
+               Polymer.dom(this.$.qrCodeContainer).removeChild( Polymer.dom(this.$.qrCodeContainer).children[i]);
+          }
+          Polymer.dom(this.$.qrCodeContainer).appendChild(node);
+        },
+
+        _validateParams: function() {
+          return ( 
+            this._validateModulesize() &&
+            this._validateVersion() &&
+            this._validateMode() &&
+            this._validateMask() &&
+            this._validateEcclevel()
+          ); 
+        },
+        _validateModulesize: function() {
+          if (this.modulesize >= 0.5) {
+            return true;
+          }
+          console.error("[granite-qrcode-generator] _validateModulesize - Invalid value of `modulesize`", this.modulesize);
+          return false;
+        },
+        _validateMargin: function() {
+          if (this.margin >= -1) {
+            return true;
+          }
+          console.error("[granite-qrcode-generator] _validateMargin - Invalid value of `margin`", this.margin);
+          return false;
+        },
+        _validateVersion: function() {
+          if (this.version == -1 || (this.version >= 0 && this.version <= 40)) {
+            return true;
+          }
+          console.error("[granite-qrcode-generator] _validateVersion - Invalid value of `version`", this.version);
+          return false;
+        },
+        _validateMode: function() {
+          if (this.mode === 'numeric' || this.mode === 'alphanumeric'  || this.mode === 'octet') {
+            return true;
+          }
+          console.error("[granite-qrcode-generator] _validateMode - Invalid value of `mode`", this.mode);
+          return false;
+        },
+        _validateEcclevel: function() {
+          if (this.ecclevel === 'L' || this.ecclevel === 'M'  || this.ecclevel === 'Q' || this.ecclevel === 'H') {
+            return true;
+          }
+          console.error("[granite-qrcode-generator] _validateEcclevel - Invalid value of `ecclevel`", this.ecclevel);
+          return false;
+        },
+        _validateMask: function() {
+          if (this.mask >= -1 && this.mask <=7) {
+            return true;
+          }
+          console.error("[granite-qrcode-generator] _validateMask - Invalid value of `mask`", this.mask);
+          return false;
+        },
+      });
+    </script>
+
+</dom-module>
