@@ -5,9 +5,27 @@
 > 
 > Polymer 1.5 ready
 
+
 ## Doc & demo
 
 [https://lostinbrittany.github.io/granite-qrcode-generator](https://lostinbrittany.github.io/granite-qrcode-generator)
+
+## Usage example
+<!--
+```
+<custom-element-demo>
+  <template>
+      <link rel=”import” href=”./granite-qrcode-generator.html”>
+  </template>    
+</custom-element-demo>
+```
+-->
+```
+<granite-qrcode-generator 
+    data="https://github.com/lostinbrittany/granite-elements"
+    mode="alphanumeric"
+    auto></granite-qrcode-generator>
+```
 
 ## Install
 
