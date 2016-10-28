@@ -15,7 +15,7 @@
 ```
 <custom-element-demo>
   <template>
-      <link rel=”import” href=”./granite-qrcode-generator.html”>
+      <link rel="import" href="./granite-qrcode-generator.html">
   </template>    
 </custom-element-demo>
 ```
