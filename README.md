@@ -19,12 +19,14 @@
 ```
 <custom-element-demo>
   <template>
-      <link rel="import" href="./granite-qrcode-generator.html">
-  </template>    
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="granite-qrcode-generator.html">
+    <next-code-block></next-code-block>
+  </template>
 </custom-element-demo>
 ```
 -->
-```
+```html
 <granite-qrcode-generator
     data="https://github.com/lostinbrittany/granite-elements"
     mode="alphanumeric"
