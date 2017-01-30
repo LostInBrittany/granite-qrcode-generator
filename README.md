@@ -1,8 +1,8 @@
 # granite-qrcode-generator
 
-> A webcomponent to render a QR Codes, 
+> A webcomponent to render a QR Codes,
 > using [qr.js](https://github.com/lifthrasiir/qr.js) library
-> 
+>
 > Polymer 1.5 ready
 
 
@@ -15,13 +15,13 @@
 ```
 <custom-element-demo>
   <template>
-      <link rel=”import” href=”./granite-qrcode-generator.html”>
+      <link rel="import" href="./granite-qrcode-generator.html">
   </template>    
 </custom-element-demo>
 ```
 -->
 ```
-<granite-qrcode-generator 
+<granite-qrcode-generator
     data="https://github.com/lostinbrittany/granite-elements"
     mode="alphanumeric"
     auto></granite-qrcode-generator>
