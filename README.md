@@ -1,3 +1,5 @@
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LostInBrittany/granite-qrcode-generator)
+
 # granite-qrcode-generator
 
 > A webcomponent to render a QR Codes,
@@ -10,7 +12,9 @@
 
 [https://lostinbrittany.github.io/granite-qrcode-generator](https://lostinbrittany.github.io/granite-qrcode-generator)
 
+
 ## Usage example
+
 <!--
 ```
 <custom-element-demo>
