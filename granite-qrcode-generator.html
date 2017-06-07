@@ -169,7 +169,7 @@ Typical usage:
           try {
             img = document.createElement('img');
             img.src = QRCode.generatePNG(this.data, options);
-            this._qrCodeContainerAdd(img);
+            this._appendQRCode(img);
           }
           catch (e) {
             console.log('no canvas support');
