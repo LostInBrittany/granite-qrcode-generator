@@ -5,7 +5,7 @@
 > A webcomponent to render a QR Codes,
 > using [qr.js](https://github.com/lifthrasiir/qr.js) library
 >
-> Polymer 1.5 ready
+> Hybrid Polymer element, 1.x-2.x ready
 
 
 ## Doc & demo
