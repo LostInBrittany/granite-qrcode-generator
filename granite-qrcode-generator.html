@@ -47,6 +47,12 @@ Typical usage:
       Polymer({
         is: "granite-qrcode-generator",
 
+        /**
+         * Fired when a QR Code is generated.
+         *
+         * @event qrcode-generated
+         */
+
         properties: {
           /**
            * The data to encode in the QRCode 
@@ -163,13 +169,14 @@ Typical usage:
           else {
             this.generateQRCodeHTML(options);
           }
+          this.fire("qrcode-generated");
         },
         generateQRCodePNG: function (options) {
           var img;
           try {
             img = document.createElement('img');
             img.src = QRCode.generatePNG(this.data, options);
-            this._qrCodeContainerAdd(img);
+            this._appendQRCode(img);
           }
           catch (e) {
             console.log('no canvas support');
