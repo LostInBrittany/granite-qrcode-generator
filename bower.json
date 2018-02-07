@@ -17,7 +17,7 @@
   "ignore": [],
   "dependencies": {
     "polymer": "Polymer/polymer#1.9 - 2",
-    "qrjs": "lifthrasiir/qr.js#^v0.0.20110119"
+    "qrjs": "lifthrasiir/qr.js#^0.0.20110119"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#1 - 2",
@@ -33,7 +33,7 @@
     "1.x": {
       "dependencies": {
         "polymer": "Polymer/polymer#^1.9",
-        "qrjs": "lifthrasiir/qr.js#^v0.0.20110119"
+        "qrjs": "lifthrasiir/qr.js#^0.0.20110119"
       },
       "devDependencies": {
         "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
