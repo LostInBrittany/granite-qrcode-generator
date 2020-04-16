@@ -1,0 +1,289 @@
+{
+  "version": "2",
+  "tags": [
+    {
+      "name": "granite-qrcode-decoder",
+      "description": "A custom element to decode a QR Code from an image.",
+      "attributes": [
+        {
+          "name": "data",
+          "description": "The data to encode in the QRCode.",
+          "type": "String"
+        },
+        {
+          "name": "auto",
+          "description": "If true, the QRCode is regenerated at each change in parameters.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "debug",
+          "description": "If debug is true, the components logs its actions on the console.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "ecclevel",
+          "description": "The error correction code level, one of 'L', 'M', 'Q', 'H'. Defaults to 'L'.",
+          "type": "String",
+          "default": "\"L\""
+        },
+        {
+          "name": "format",
+          "description": "The format of the generated QRCode, either \"html\" or \"png\". Defaults to \"png\".",
+          "type": "String",
+          "default": "\"html\""
+        },
+        {
+          "name": "mode",
+          "description": "The mode of the QRCode, one of 'numeric', 'alphanumeric', 'octet'. When omitted the smallest possible ('numeric') mode is chosen.",
+          "type": "String",
+          "default": "\"numeric\""
+        },
+        {
+          "name": "margin",
+          "description": "This is a size of margin in *modules*. Defaults to 4 (white modules). The specficiation mandates the margin no less than 4 modules",
+          "type": "Number",
+          "default": "4"
+        },
+        {
+          "name": "mask",
+          "description": "The mask level, an integer in [0,7]. When omitted (or -1) the best mask is chosen.",
+          "type": "Number",
+          "default": "-1"
+        },
+        {
+          "name": "modulesize",
+          "description": "The size of each modules in pixels. Defaults to 5px.",
+          "type": "Number",
+          "default": "5"
+        },
+        {
+          "name": "version",
+          "description": "The QRCode version, an integer in [1,40]. When omitted (or -1) the smallest possible version is chosen.",
+          "type": "Number",
+          "default": "-1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "data",
+          "attribute": "data",
+          "description": "The data to encode in the QRCode.",
+          "type": "String"
+        },
+        {
+          "name": "auto",
+          "attribute": "auto",
+          "description": "If true, the QRCode is regenerated at each change in parameters.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "If debug is true, the components logs its actions on the console.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "ecclevel",
+          "attribute": "ecclevel",
+          "description": "The error correction code level, one of 'L', 'M', 'Q', 'H'. Defaults to 'L'.",
+          "type": "String",
+          "default": "\"L\""
+        },
+        {
+          "name": "format",
+          "attribute": "format",
+          "description": "The format of the generated QRCode, either \"html\" or \"png\". Defaults to \"png\".",
+          "type": "String",
+          "default": "\"html\""
+        },
+        {
+          "name": "mode",
+          "attribute": "mode",
+          "description": "The mode of the QRCode, one of 'numeric', 'alphanumeric', 'octet'. When omitted the smallest possible ('numeric') mode is chosen.",
+          "type": "String",
+          "default": "\"numeric\""
+        },
+        {
+          "name": "margin",
+          "attribute": "margin",
+          "description": "This is a size of margin in *modules*. Defaults to 4 (white modules). The specficiation mandates the margin no less than 4 modules",
+          "type": "Number",
+          "default": "4"
+        },
+        {
+          "name": "mask",
+          "attribute": "mask",
+          "description": "The mask level, an integer in [0,7]. When omitted (or -1) the best mask is chosen.",
+          "type": "Number",
+          "default": "-1"
+        },
+        {
+          "name": "modulesize",
+          "attribute": "modulesize",
+          "description": "The size of each modules in pixels. Defaults to 5px.",
+          "type": "Number",
+          "default": "5"
+        },
+        {
+          "name": "version",
+          "attribute": "version",
+          "description": "The QRCode version, an integer in [1,40]. When omitted (or -1) the smallest possible version is chosen.",
+          "type": "Number",
+          "default": "-1"
+        }
+      ],
+      "events": [
+        {
+          "name": "qrcode-generated",
+          "description": "Fires whenever a QRcode is generated."
+        }
+      ]
+    },
+    {
+      "name": "granite-qrcode-generator",
+      "description": "A custom element to decode a QR Code from an image.",
+      "attributes": [
+        {
+          "name": "data",
+          "description": "The data to encode in the QRCode.",
+          "type": "String"
+        },
+        {
+          "name": "auto",
+          "description": "If true, the QRCode is regenerated at each change in parameters.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "debug",
+          "description": "If debug is true, the components logs its actions on the console.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "ecclevel",
+          "description": "The error correction code level, one of 'L', 'M', 'Q', 'H'. Defaults to 'L'.",
+          "type": "String",
+          "default": "\"L\""
+        },
+        {
+          "name": "format",
+          "description": "The format of the generated QRCode, either \"html\" or \"png\". Defaults to \"png\".",
+          "type": "String",
+          "default": "\"html\""
+        },
+        {
+          "name": "mode",
+          "description": "The mode of the QRCode, one of 'numeric', 'alphanumeric', 'octet'. When omitted the smallest possible ('numeric') mode is chosen.",
+          "type": "String",
+          "default": "\"numeric\""
+        },
+        {
+          "name": "margin",
+          "description": "This is a size of margin in *modules*. Defaults to 4 (white modules). The specficiation mandates the margin no less than 4 modules",
+          "type": "Number",
+          "default": "4"
+        },
+        {
+          "name": "mask",
+          "description": "The mask level, an integer in [0,7]. When omitted (or -1) the best mask is chosen.",
+          "type": "Number",
+          "default": "-1"
+        },
+        {
+          "name": "modulesize",
+          "description": "The size of each modules in pixels. Defaults to 5px.",
+          "type": "Number",
+          "default": "5"
+        },
+        {
+          "name": "version",
+          "description": "The QRCode version, an integer in [1,40]. When omitted (or -1) the smallest possible version is chosen.",
+          "type": "Number",
+          "default": "-1"
+        }
+      ],
+      "properties": [
+        {
+          "name": "data",
+          "attribute": "data",
+          "description": "The data to encode in the QRCode.",
+          "type": "String"
+        },
+        {
+          "name": "auto",
+          "attribute": "auto",
+          "description": "If true, the QRCode is regenerated at each change in parameters.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "If debug is true, the components logs its actions on the console.",
+          "type": "Boolean",
+          "default": "false"
+        },
+        {
+          "name": "ecclevel",
+          "attribute": "ecclevel",
+          "description": "The error correction code level, one of 'L', 'M', 'Q', 'H'. Defaults to 'L'.",
+          "type": "String",
+          "default": "\"L\""
+        },
+        {
+          "name": "format",
+          "attribute": "format",
+          "description": "The format of the generated QRCode, either \"html\" or \"png\". Defaults to \"png\".",
+          "type": "String",
+          "default": "\"html\""
+        },
+        {
+          "name": "mode",
+          "attribute": "mode",
+          "description": "The mode of the QRCode, one of 'numeric', 'alphanumeric', 'octet'. When omitted the smallest possible ('numeric') mode is chosen.",
+          "type": "String",
+          "default": "\"numeric\""
+        },
+        {
+          "name": "margin",
+          "attribute": "margin",
+          "description": "This is a size of margin in *modules*. Defaults to 4 (white modules). The specficiation mandates the margin no less than 4 modules",
+          "type": "Number",
+          "default": "4"
+        },
+        {
+          "name": "mask",
+          "attribute": "mask",
+          "description": "The mask level, an integer in [0,7]. When omitted (or -1) the best mask is chosen.",
+          "type": "Number",
+          "default": "-1"
+        },
+        {
+          "name": "modulesize",
+          "attribute": "modulesize",
+          "description": "The size of each modules in pixels. Defaults to 5px.",
+          "type": "Number",
+          "default": "5"
+        },
+        {
+          "name": "version",
+          "attribute": "version",
+          "description": "The QRCode version, an integer in [1,40]. When omitted (or -1) the smallest possible version is chosen.",
+          "type": "Number",
+          "default": "-1"
+        }
+      ],
+      "events": [
+        {
+          "name": "qrcode-generated",
+          "description": "Fires whenever a QRcode is generated."
+        }
+      ]
+    }
+  ]
+}

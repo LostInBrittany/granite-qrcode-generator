@@ -2,67 +2,95 @@
 [![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/LostInBrittanygranite-qrcode-generator.svg)](https://vaadin.com/directory/component/LostInBrittanygranite-qrcode-generator)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LostInBrittany/granite-qrcode-generator)
 
-# granite-qrcode-generator
+# \<granite-qrcode-generator>
 
-> A webcomponent to render a QR Codes,
-> using [qr.js](https://github.com/lifthrasiir/qr.js) library
->
-> Hybrid Polymer element, 1.x-2.x ready
+A custom element to generate and render a QR Codes, using [qr.js](https://github.com/lifthrasiir/qr.js) library
 
+Built on [lit-element](https://github.com/Polymer/lit-element) following the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
-## Doc & demo
+> The old Polymer 2.x-1.x version is available on the [`polymer-hybrid` branch](https://github.com/LostInBrittany/granite-qrcode-generator/tree/polymer-hybrid).
 
-[https://lostinbrittany.github.io/granite-qrcode-generator](https://lostinbrittany.github.io/granite-qrcode-generator)
-
-
-## Usage example
-
-<!--
+## Installation
+```bash
+npm i granite-qrcode-generator
 ```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="granite-qrcode-generator.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
+
+## Usage
 ```html
-<granite-qrcode-generator
+<script type="module">
+  import 'granite-qrcode-generator/granite-qrcode-generator.js';
+</script>
+
+<granite-qrcode-generator 
     data="https://github.com/lostinbrittany/granite-elements"
     mode="alphanumeric"
     auto></granite-qrcode-generator>
 ```
 
-## Install
-
-Install the component using [Bower](http://bower.io/):
-
-```sh
-$ bower install LostInBrittany/granite-qrcode-generator --save
+## Linting with ESLint, Prettier, and Types
+To scan the project for linting errors, run
+```bash
+npm run lint
 ```
 
-Or [download as ZIP](https://github.com/LostInBrittany/granite-qrcode-generator/archive/gh-pages.zip).## Usage
+You can lint with ESLint and Prettier individually as well
+```bash
+npm run lint:eslint
+```
+```bash
+npm run lint:prettier
+```
 
-1. Import Web Components' polyfill (if needed):
+To automatically fix many linting errors, run
+```bash
+npm run format
+```
 
-    ```html
-    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
-    ```
+You can format using ESLint and Prettier individually as well
+```bash
+npm run format:eslint
+```
+```bash
+npm run format:prettier
+```
 
-2. Import Custom Element:
+## Testing with Karma
+To run the suite of karma tests, run
+```bash
+npm run test
+```
 
-    ```html
-    <link rel="import" href="bower_components/granite-qrcode-generator/granite-qrcode-generator.html">
-    ```
+To run the tests in watch mode (for <abbr title="test driven development">TDD</abbr>, for example), run
 
-3. Start using it!
+```bash
+npm run test:watch
+```
 
-    ```html
-    <granite-qrcode-generator>
-    </granite-qrcode-generator>
-    ```
+## Demoing with Storybook
+To run a local instance of Storybook for your component, run
+```bash
+npm run storybook
+```
+
+To build a production version of Storybook, run
+```bash
+npm run storybook:build
+```
+
+
+## Tooling configs
+
+For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
+
+If you customize the configuration a lot, you can consider moving them to individual files.
+
+## Local Demo with `es-dev-server`
+```bash
+npm start
+```
+To run a local development server that serves the basic demo located in `demo/index.html`
+
+
 
 
 ## Contributing
