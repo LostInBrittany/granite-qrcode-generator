@@ -1,6 +1,6 @@
 {
   "name": "@granite-elements/granite-qrcode-generator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A custom element to generate and render a QR Codes, using [qr.js](https://github.com/lifthrasiir/qr.js) library",
   "author": "Horacio Gonzalez <horacio.gonzalez@gmail.com",
   "license": "MIT",
@@ -13,6 +13,11 @@
     "qrcode generator",
     "generator"
   ],
+  "homepage": "https://github.com/LostInBrittany/granite-qrcode-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LostInBrittany/granite-qrcode-generator"
+  },
   "main": "index.js",
   "module": "index.js",
   "scripts": {
@@ -29,7 +34,7 @@
     "storybook:build": "build-storybook"
   },
   "dependencies": {
-    "@lostinbrittany/qr-esm": "^1.0.0",
+    "@lostinbrittany/qr-esm": "^1.2.0",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2"
   },
