@@ -1,6 +1,6 @@
 {
   "name": "@granite-elements/granite-qrcode-generator",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A custom element to generate and render a QR Codes, using [qr.js](https://github.com/lifthrasiir/qr.js) library",
   "author": "Horacio Gonzalez <horacio.gonzalez@gmail.com",
   "license": "MIT",
@@ -39,17 +39,18 @@
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
-    "@open-wc/demoing-storybook": "^2.0.0",
-    "@open-wc/eslint-config": "^2.0.0",
+    "@open-wc/demoing-storybook": "^2.3.12",
+    "@open-wc/eslint-config": "^2.0.6",
     "@open-wc/prettier-config": "^0.1.10",
-    "@open-wc/testing": "^2.0.0",
-    "@open-wc/testing-karma": "^3.0.0",
+    "@open-wc/testing": "^2.5.19",
+    "@open-wc/testing-karma": "^3.4.7",
     "deepmerge": "^3.2.0",
-    "es-dev-server": "^1.23.0",
+    "es-dev-server": "^1.56.1",
     "eslint": "^6.1.0",
     "husky": "^1.0.0",
     "lint-staged": "^8.0.0",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "lodash": ">=4.17.19"
   },
   "eslintConfig": {
     "extends": [
