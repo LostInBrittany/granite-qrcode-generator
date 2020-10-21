@@ -12,7 +12,7 @@ Built on [lit-element](https://github.com/Polymer/lit-element) following the [op
 
 ## Installation
 ```bash
-npm i granite-qrcode-generator
+npm i @granite-elements/granite-qrcode-generator
 ```
 
 ## Usage
